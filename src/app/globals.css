@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbars on smaller screens */
+.scroll-container {
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .scroll-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+  
+  body {
+    background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1));; /* Light Blue color */
+  }
+
+  
