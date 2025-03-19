@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from "react";
 import MediaContent from "../../sections/MediaContent";
 
+
+const addArtist = async () => {
+
+  
+  const res = await fetch(`${process.env.FRONTEND}/api/bs_ai_emerging_artist_list`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({}),
+  });
+
+  
+};
 export default function CreateNewsletter() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -10,31 +22,31 @@ export default function CreateNewsletter() {
   const [showDropdown, setShowDropdown] = useState(false);
 
   console.log("selected user:", selectedUser);
+  const fetchUsers = async () => {
+    try {
+      const res = await fetch("/admin/api/users", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        const filteredUsers = data.filter(user => user.subFlag === 1);
+
+        setUsers(filteredUsers);
+      } else {
+        console.error("Failed to fetch users");
+      }
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const res = await fetch("/admin/api/users", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        if (res.ok) {
-          const data = await res.json();
-          const filteredUsers = data.filter(user => user.subFlag === 1);
-
-          setUsers(filteredUsers);
-        } else {
-          console.error("Failed to fetch users");
-        }
-      } catch (error) {
-        console.error("Error fetching users:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
+   
     fetchUsers();
   }, []);
 
@@ -81,6 +93,8 @@ export default function CreateNewsletter() {
     } finally {
       setLoading(false);
     }
+
+    await addArtist();
   };
 
   return (

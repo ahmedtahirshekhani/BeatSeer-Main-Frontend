@@ -2,6 +2,27 @@ import { NextResponse } from "next/server";
 import axios from "axios";
 import { connectToDatabase } from "../../utils/db.js";
 
+const fetchArtists = async () => {
+  const res = await fetch("/api/bs_ai_emerging_artist_list");
+  const data_ea = await res.json();
+  console.log("Fetched artists:", data_ea.emerging_artists);
+  return data_ea.emerging_artists
+};
+
+const addArtist = async () => {
+
+  
+  const res = await fetch(`${process.env.FRONTEND}/api/bs_ai_emerging_artist_list`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({}),
+  });
+
+  
+};
+
+
+
 export async function GET() {
   try {
     const apiKey = await fetch(`${process.env.FRONTEND}/admin/api/credentials`);
@@ -25,6 +46,9 @@ export async function GET() {
         createdAt: new Date(),
       });
       console.log("Data successfully inserted into the database.");
+
+      // Add artist
+      await addArtist();
     } else {
       throw new Error("Invalid response from news-letter API");
     }

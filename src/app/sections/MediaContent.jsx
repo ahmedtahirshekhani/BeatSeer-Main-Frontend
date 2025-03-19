@@ -6,9 +6,23 @@ import EmergingArtists from "./EmergingArtists";
 import MediaProjects from "./MediaProjects";
 import RisingStar from "./RisingStart";
 
+
 export default function MediaContent() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
+  const [emerging_artists_bs_ai, setEmergingArtistsBsAi] = useState([]);
+
+
+  // Fetch artists from the API
+  const fetchArtists = async () => {
+    const res = await fetch("/api/bs_ai_emerging_artist_list");
+    const data_ea = await res.json();
+    console.log("Fetched artists:", data_ea.emerging_artists);
+    return data_ea.emerging_artists
+  };
+
+
+
 
 
   useEffect(() => {
@@ -25,8 +39,11 @@ export default function MediaContent() {
         // console.log("Top5 Emerging data:", result?.[0]?.top_5_emerging_artists );
         result[0].top_5_emerging_artists = sortBySocialGrowthAscending(result[0]?.top_5_emerging_artists);
         result[0].top_5_emerging_artists = formatMonthlyStreams(result[0]?.top_5_emerging_artists);
+        setEmergingArtistsBsAi(await fetchArtists());
         setData(result); 
         setLoading(false);
+
+
       } catch (error) {
         console.error("Error fetching data:", error);
         setLoading(false);
@@ -82,7 +99,7 @@ function formatMonthlyStreams(data) {
           <EstablishedArtists artists={data} />
           <EmergingArtists artists={data?.[0]?.top_5_emerging_artists} />
           {/* <MediaProjects /> */}
-          <MediaProjects projects={data} />
+          <MediaProjects projects={data} emerging_artists_bs_ai_list={emerging_artists_bs_ai} />
           <RisingStar artists={data?.[0]?.top_5_emerging_artists} />
         </>
       )}

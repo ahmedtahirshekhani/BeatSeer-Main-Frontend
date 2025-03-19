@@ -120,20 +120,7 @@ const RisingStar = ({ artists }) => {
             <p className="text-sm text-gray-700">Followers</p>
           </div>
         </div>
-        <div className="relative w-full max-w-4xl mx-auto border rounded-lg shadow-lg overflow-hidden mt-10">
-  <div className="bg-gray-100 text-gray-700 px-4 py-2 border-b flex justify-between items-center">
-    <span className="font-semibold">Artist Analysis Tool</span>
-    <span className="text-xs text-gray-500">Scroll down for more info ↓</span>
-  </div>
-
-  <div className="relative overflow-y-scroll h-[500px]">
-    <iframe 
-      src={`${process.env.BEATSEER_AI_URL}/analysis?artist=${artist}`} 
-      title="Analysis Tool"
-      className="w-full h-full"
-    ></iframe>
-  </div>
-</div>
+   
       </div>
     </section>
   );
