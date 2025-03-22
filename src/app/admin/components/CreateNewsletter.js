@@ -5,7 +5,7 @@ import MediaContent from "../../sections/MediaContent";
 const addArtist = async () => {
 
   
-  const res = await fetch(`${process.env.FRONTEND}/api/bs_ai_emerging_artist_list`, {
+  const res = await fetch(`/api/bs_ai_emerging_artist_list`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({}),
