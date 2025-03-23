@@ -81,7 +81,7 @@ export default function MediaProjects({projects, emerging_artists_bs_ai_list}) {
 
   <div className="relative overflow-y-scroll h-[500px]">
     <iframe 
-      src={`${process.env.BEATSEER_AI_URL}/analysis?artist=${filtered_emerging_artists[0].artist.name}`} 
+      src={`${process.env.NEXT_PUBLIC_BEATSEER_AI_URL}/analysis?artist=${filtered_emerging_artists[0].artist.name}`} 
       title="Analysis Tool"
       className="w-full h-full"
     ></iframe>
