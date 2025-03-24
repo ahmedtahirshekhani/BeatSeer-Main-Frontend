@@ -91,6 +91,7 @@ export default function MediaProjects({projects, emerging_artists_bs_ai_list}) {
         <div className="relative w-full max-w-4xl mx-auto border rounded-lg shadow-lg overflow-hidden mt-10">
         <div className="bg-gray-100 text-gray-700 px-4 py-2 border-b flex justify-center items-center">
           <h1 className="font-semibold text-center">MediaMatch Artists Placement Profiler</h1>
+          <span className="text-xs text-gray-500 ml-auto">Scroll down for more info ↓</span>
         </div>
 
   <div className="relative overflow-y-scroll h-[500px]">
