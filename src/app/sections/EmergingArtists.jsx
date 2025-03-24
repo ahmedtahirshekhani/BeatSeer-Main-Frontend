@@ -25,7 +25,15 @@ export default function EmergingArtists({artists}) {
                 className="rounded-md mb-2 h-30 w-full object-cover"
               /> */}
   
-              <h4 className="font-semibold text-sm text-center">{item?.artist || "N/A"}</h4>
+              <h4 className="font-semibold text-sm text-center">
+                {item?.artist
+                  ? item.artist
+                      .split(' ')
+                      .map(name => name.charAt(0).toUpperCase() + name.slice(1).toLowerCase())
+                      .join(' ')
+                  : "N/A"}
+              </h4>
+
   
               {/* Additional Stats */}
               <div className="mt-2 text-xs text-center text-gray-500 pb-1">
