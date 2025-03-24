@@ -34,7 +34,15 @@ export default function MediaProjects({projects, emerging_artists_bs_ai_list}) {
               key={index}
               className="flex-none w-[50%] sm:w-[30%] md:w-[20%] lg:w-[15%] bg-gray-100 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300 p-2 snap-start"
             >
-              <h4 className="font-semibold text-sm text-center">{item.name}</h4>
+              <h4 className="font-semibold text-sm text-center">
+                {item?.name
+                  ? item.name
+                      .split(' ')
+                      .map(name => name.charAt(0).toUpperCase() + name.slice(1).toLowerCase())
+                      .join(' ')
+                  : "N/A"}
+              </h4>
+
               <p className="text-gray-500 text-xs text-center">
                 Projected Growth: <span className="font-semibold">{item.projected_growth}</span>
               </p>
@@ -60,7 +68,14 @@ export default function MediaProjects({projects, emerging_artists_bs_ai_list}) {
               key={index}
               className="flex-none w-[50%] sm:w-[30%] md:w-[20%] lg:w-[15%] bg-gray-100 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300 p-2 snap-start"
             >
-              <h4 className="font-semibold text-sm text-center">{item.name}</h4>
+              <h4 className="font-semibold text-sm text-center">
+                {item?.name
+                  ? item.name
+                      .split(' ')
+                      .map(name => name.charAt(0).toUpperCase() + name.slice(1).toLowerCase())
+                      .join(' ')
+                  : "N/A"}
+              </h4>
               <p className="text-gray-500 text-xs text-center">
                 Projected Growth: <span className="font-semibold">{item.projected_growth}</span>
               </p>
@@ -74,10 +89,9 @@ export default function MediaProjects({projects, emerging_artists_bs_ai_list}) {
           ))}
         </div>
         <div className="relative w-full max-w-4xl mx-auto border rounded-lg shadow-lg overflow-hidden mt-10">
-  <div className="bg-gray-100 text-gray-700 px-4 py-2 border-b flex justify-between items-center">
-    <span className="font-semibold">Artist Analysis Tool</span>
-    <span className="text-xs text-gray-500">Scroll down for more info ↓</span>
-  </div>
+        <div className="bg-gray-100 text-gray-700 px-4 py-2 border-b flex justify-center items-center">
+          <h1 className="font-semibold text-center">MediaMatch Artists Placement Profiler</h1>
+        </div>
 
   <div className="relative overflow-y-scroll h-[500px]">
     <iframe 

@@ -25,8 +25,14 @@ export default function TrendingGenres({ genres }) {
               className="pb-1 flex-none w-[50%] sm:w-[30%] md:w-[20%] lg:w-[15%] bg-gray-100 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300 p-2 snap-start"
             >
               <h4 className="font-semibold text-sm text-center">
-                {item?.genre ? item.genre.charAt(0).toUpperCase() + item.genre.slice(1) : "General-Up"}
+                {item?.genre
+                  ? item.genre
+                      .split(' ')
+                      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                      .join(' ')
+                  : "General-Up"}
               </h4>
+
               <p className="text-green-500 text-xs text-center font-medium">
                 {item?.trending_percent ? `↑ ${item.trending_percent}%` : "General-Up"}
               </p>
@@ -47,8 +53,14 @@ export default function TrendingGenres({ genres }) {
               className="pb-1 flex-none w-[50%] sm:w-[30%] md:w-[20%] lg:w-[15%] bg-gray-100 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300 p-2 snap-start"
             >
               <h4 className="font-semibold text-sm text-center">
-                {item?.genre ? item.genre.charAt(0).toUpperCase() + item.genre.slice(1) : "General-Down"}
+                {item?.genre
+                  ? item.genre
+                      .split(' ')
+                      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                      .join(' ')
+                  : "General-Down"}
               </h4>
+
               <p className="text-red-500 text-xs text-center font-medium">
                 {item?.trending_percent ? `↓ ${item.trending_percent}%` : "General-Down"}
               </p>
