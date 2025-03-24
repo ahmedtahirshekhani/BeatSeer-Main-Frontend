@@ -30,11 +30,11 @@ export default function TrendingGenres({ genres }) {
                       .split(' ')
                       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
                       .join(' ')
-                  : "General-Up"}
+                  : "Classic-Up"}
               </h4>
 
               <p className="text-green-500 text-xs text-center font-medium">
-                {item?.trending_percent ? `↑ ${item.trending_percent}%` : "General-Up"}
+                {item?.trending_percent ? `↑ ${item.trending_percent}%` : "Classic-Up"}
               </p>
             </div>
           ))}
@@ -58,11 +58,11 @@ export default function TrendingGenres({ genres }) {
                       .split(' ')
                       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
                       .join(' ')
-                  : "General-Down"}
+                  : "Classic-Down"}
               </h4>
 
               <p className="text-red-500 text-xs text-center font-medium">
-                {item?.trending_percent ? `↓ ${item.trending_percent}%` : "General-Down"}
+                {item?.trending_percent ? `↓ ${item.trending_percent}%` : "Classic-Down"}
               </p>
             </div>
           ))}

@@ -73,7 +73,7 @@ const RisingStar = ({ artists }) => {
           {/* Artist Details */}
           <div className="w-full sm:w-2/3 md:w-3/4 p-3">
             <h3 className="text-lg font-bold text-green-500 mb-1">{artist}</h3>
-            <p className="text-sm text-gray-500 mb-3">Genre: {genre || "General"}</p>
+            <p className="text-sm text-gray-500 mb-3">Genre: {genre || "Classic"}</p>
   
             {/* Most Popular Track */}
             <h4 className="font-semibold">Most Popular Track</h4>
