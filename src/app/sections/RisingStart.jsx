@@ -52,7 +52,7 @@ const RisingStar = ({ artists }) => {
 
   return (
     <section className="ml-0 pt-6 bg-gray-50 flex flex-col items-center w-full">
-      <div className="bg-gray-100 text-gray-700 px-4 py-2 h-10 w-[90%] max-w-[800px]">
+      <div className="bg-gray-100 text-gray-700 px-4 py-2 w-[90%] max-w-[800px] mb-7">
           <h1 className="font-semibold">MediaMatch Artist of Your Choice at <a href={process.env.NEXT_PUBLIC_BEATSEER_AI_URL} className='underline'>www.Bearseer.com</a></h1>
         </div>
       <div className="bg-[#B795D4] text-white flex items-center justify-center text-center h-10 w-[90%] max-w-[800px]">
