@@ -19,19 +19,17 @@ const RisingStar = ({ artists }) => {
   useEffect(() => {
     const choosingRisingStar = async () => {
       const sortedArtists = artists.sort((a, b) => (b.video_views || 0) - (a.video_views || 0));
+      console.log("sortedArtists", sortedArtists);
+  
 
       const response = await fetch(`/api/2ndLastEntry`);
       const previousRisingStar = await response.json();
 
       let selectedRisingStar = sortedArtists[0];
-      // console.log("selectedRisingStar", selectedRisingStar.artist);
-      // console.log("previousRisingStar", previousRisingStar.artist);
 
 
       if (selectedRisingStar.artist === previousRisingStar.artist) {
-        // console.log("Same artist, find second least views artist");
         selectedRisingStar = sortedArtists[1] || {};
-        // console.log("selectedRisingStar", selectedRisingStar);
         
       } else {
         // console.log("Different artist");
@@ -66,7 +64,7 @@ const RisingStar = ({ artists }) => {
             <img
               src={artist_image_url || channel_image_url}
               alt={artist}
-              className="w-[250px] h-[200px] md:w-[350px] md:h-[250px] rounded-lg object-cover"
+              className="w-full h-full rounded-lg object-cover"
             />
           </div>
   
