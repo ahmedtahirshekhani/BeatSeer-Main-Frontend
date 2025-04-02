@@ -44,7 +44,7 @@ export default function MediaProjects({projects, emerging_artists_bs_ai_list}) {
               </h4>
 
               <p className="text-gray-500 text-xs text-center">
-                Projected Growth: <span className="font-semibold">{item.projected_growth}</span>
+                Projected Growth: <span className="font-semibold">{item.projected_growth.toFixed(1)}</span>
               </p>
               <p className="text-gray-500 text-xs text-center">
                 Genre: <span className="font-semibold">{item.genre}</span>
@@ -77,7 +77,7 @@ export default function MediaProjects({projects, emerging_artists_bs_ai_list}) {
                   : "N/A"}
               </h4>
               <p className="text-gray-500 text-xs text-center">
-                Projected Growth: <span className="font-semibold">{item.projected_growth}</span>
+                Projected Growth: <span className="font-semibold">{item.projected_growth.toFixed(1)}</span>
               </p>
               <p className="text-gray-500 text-xs text-center">
                 Genre: <span className="font-semibold">{item.genre}</span>
