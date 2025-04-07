@@ -1,6 +1,7 @@
 import { connectToDatabase } from "../../utils/db.js";
 
 export async function POST(request) {
+  try {
     const db = await connectToDatabase();
     const collection = db.collection("bs_ai_emerging_artist_list");
     const collection2 = db.collection("newsletter");
@@ -40,6 +41,13 @@ export async function POST(request) {
     await collection.updateOne({}, { $set: { emerging_artists: emergingArtists } }, { upsert: true });
 
     return new Response("Artist added successfully", { status: 200 });
+  } catch (error) {
+    console.error("Error in POST handler:", error);
+    return new Response(JSON.stringify({ error: error.message }), { 
+        status: 500,
+        headers: { "Content-Type": "application/json" }
+    });
+  }
 }
 
 export async function GET(request) {

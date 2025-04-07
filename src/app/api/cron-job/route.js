@@ -70,5 +70,9 @@ export async function GET() {
     return NextResponse.json(result);
   } catch (error) {
     console.error("Error in cron job API:", error);
+    return NextResponse.json(
+      { error: error.message || "Internal Server Error" },
+      { status: error.status || 500 }
+    );
   }
 }
