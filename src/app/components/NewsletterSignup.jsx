@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-
+import ShareButtons from "./ShareButtons";
 export default function NewsletterSignup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -93,6 +93,7 @@ export default function NewsletterSignup() {
         </div>
       </section>
 
+      <ShareButtons />
       <div className="bg-gray-300 h-16 py-4 text-center w-[90%] max-w-[800px] mx-auto">
         <p className="text-sm text-white">Ad space</p>
       </div>
