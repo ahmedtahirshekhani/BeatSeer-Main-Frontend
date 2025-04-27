@@ -1,18 +1,15 @@
 'use client'
 import { useState, useEffect } from 'react'
 import {
-  FaWhatsapp,
   FaLinkedin,
-  FaTwitter,
   FaInstagram,
-  FaReddit,
   FaSnapchatGhost,
-  FaViber,
   FaEnvelope,
   FaShareAlt,
-  FaPrint
+  FaPrint,
+  FaFacebook
 } from 'react-icons/fa'
-
+import { TbBrandX } from 'react-icons/tb'
 export default function CustomShare() {
   const [shareUrl, setShareUrl] = useState('')
   const [showOptions, setShowOptions] = useState(false)
@@ -34,26 +31,26 @@ export default function CustomShare() {
       {/* Share options */}
       {showOptions && (
         <div className="flex justify-center gap-4 flex-wrap mt-4">
-          {/* WhatsApp */}
+          
+          {/* Facebook */}
           <a
-            href={`https://wa.me/?text=${encodeURIComponent(shareUrl)}`}
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition"
-            aria-label="Share on WhatsApp"
+            className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition"
+            aria-label="Share on Facebook"
           >
-            <FaWhatsapp size={24} />
+            <FaFacebook size={24} />
           </a>
 
-          {/* Twitter */}
           <a
             href={`https://x.com/intent/tweet?url=${encodeURIComponent(shareUrl)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-black text-white p-3 rounded-full hover:bg-gray-800 transition"
-            aria-label="Share on Twitter"
+            className="bg-black text-white p-3 rounded-full hover:bg-gray-900 transition"
+            aria-label="Share on X"
           >
-            <FaTwitter size={24} />
+            <TbBrandX size={24} className="font-bold" />
           </a>
 
           {/* LinkedIn */}
@@ -90,32 +87,13 @@ export default function CustomShare() {
             <FaSnapchatGhost size={24} />
           </a>
 
-          {/* Reddit */}
-          <a
-            href={`https://reddit.com/submit?url=${encodeURIComponent(shareUrl)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-orange-600 text-white p-3 rounded-full hover:bg-orange-700 transition"
-            aria-label="Share on Reddit"
-          >
-            <FaReddit size={24} />
-          </a>
-
-          {/* Viber */}
-          <a
-            href={`viber://forward?text=${encodeURIComponent(shareUrl)}`}
-            className="bg-purple-700 text-white p-3 rounded-full hover:bg-purple-800 transition"
-            aria-label="Share on Viber"
-          >
-            <FaViber size={24} />
-          </a>
-
           {/* Gmail */}
           <a
             href={`https://mail.google.com/mail/?view=cm&to=&body=${encodeURIComponent(shareUrl)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition"
+            aria-label="Share via Email"
           >
             <FaEnvelope size={24} />
           </a>
@@ -124,13 +102,12 @@ export default function CustomShare() {
           <button
             onClick={() => window.print()}
             className="bg-slate-800 text-white p-3 rounded-full hover:bg-slate-900 transition"
+            aria-label="Print page"
           >
             <FaPrint size={24} />
           </button>
-
         </div>
       )}
-
     </div>
   )
 }
