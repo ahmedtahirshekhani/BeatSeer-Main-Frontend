@@ -95,8 +95,9 @@ export default function MediaProjects({projects, emerging_artists_bs_ai_list}) {
         </div>
 
   <div className="relative overflow-y-scroll h-[500px]">
+    {console.log("filtered_emerging_artists", filtered_emerging_artists)}
     <iframe 
-      src={`${process.env.NEXT_PUBLIC_BEATSEER_AI_URL}/analysis?artist=${filtered_emerging_artists[0].artist.name}`} 
+      src={`${process.env.NEXT_PUBLIC_BEATSEER_AI_URL}/analysis?artist=${filtered_emerging_artists[0].artist.name}&genre=${filtered_emerging_artists[0].artist.genre}&projected_growth=${filtered_emerging_artists[0].artist.projected_growth}&genre_compatibility=${filtered_emerging_artists[0].artist.genre_compatibility}&artist_country=${filtered_emerging_artists[0].artist.country}`}
       title="Analysis Tool"
       className="w-full h-full"
     ></iframe>
