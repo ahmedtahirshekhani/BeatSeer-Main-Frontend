@@ -11,19 +11,40 @@ export function generateNewsletterHtml({ message, trends, unsubscribeUrl }) {
       <!-- Header -->
       <div style="background-color: #1d374c; padding: 24px; text-align: center; border-radius: 8px 8px 0 0;">
         <img src="https://res.cloudinary.com/dmwl7yipj/image/upload/v1746914378/newlogoWithName_dizgws.png" alt="Beatseer Logo" style="height: 50px;">
-        <h1 style="color: #ffffff; font-size: 24px; font-weight: 700; margin-top: 16px;">${message}</h1>
+        
+        <!-- 
+        <h1 style="color: #ffffff; font-size: 24px; font-weight: 700; margin-top: 16px;">${message}</h1> 
         <p style="color: #9ca3af; font-size: 14px; margin-top: 8px;">${currentDate}</p>
+        -->
+
+        <h2 style="font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #ffffff;">
+            The Week of ${currentDate} Beatseer Newsletter is now available online. Click below to access the latest insights and analysis.
+        </h2>
+
+        <a href="${process.env.WEBSITE_URL}" style="display: inline-block; background-color: #7b46e5; color: #ffffff; 
+            font-weight: 600; padding: 12px 24px; border-radius: 6px; text-decoration: none;">
+            Click Here
+        </a>
+
+        <p style="font-size: 14px; margin-bottom: 16px; color: #ffffff;">
+            For maximum industry intelligence, consider visiting multiple times weekly. Unlike traditional newsletters, the Beatseer Newsletter pulls fresh recording artist data every time you open it, giving you a competitive edge with real-time insights.
+        </p>
+
       </div>
       
       <!-- Main Content -->
       <div style="color: #1f2937;">
+      
+      <!-- 
         <p style="font-size: 16px; line-height: 1.5; margin-bottom: 14px;">
           Here are the latest music trends for you
         </p>
         
         ${trendsHtml}
+      -->
         
         <!-- CTA Section -->
+        <!--
         <div style="background-color: #eef2ff; border-radius: 8px; padding: 24px; text-align: center; margin: 14px 0;">
           <h2 style="font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #1e40af;">
             The Week of ${currentDate} Beatseer Newsletter is now available online. Click below to access the latest insights and analysis.
@@ -31,11 +52,13 @@ export function generateNewsletterHtml({ message, trends, unsubscribeUrl }) {
           <p style="font-size: 14px; margin-bottom: 16px; color: #4b5563;">
             For maximum industry intelligence, consider visiting multiple times weekly. Unlike traditional newsletters, the Beatseer Newsletter pulls fresh recording artist data every time you open it, giving you a competitive edge with real-time insights.
           </p>
-          <a href="${process.env.FRONTEND}" style="display: inline-block; background-color: #4f46e5; color: #ffffff; 
+          <a href="${process.env.WEBSITE_URL}" style="display: inline-block; background-color: #4f46e5; color: #ffffff; 
             font-weight: 600; padding: 12px 24px; border-radius: 6px; text-decoration: none;">
             Click Here
           </a>
         </div>
+
+        -->
         
         <!-- Closing -->
         <p style="font-size: 15px; line-height: 1.6; color: #4b5563; margin-bottom: 24px;">

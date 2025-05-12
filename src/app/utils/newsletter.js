@@ -54,7 +54,7 @@ export async function sendNewsletterToUsers(message) {
 
       const emailPromises = users.map(async (user) => {
       try {
-        const unsubscribeUrl = `${process.env.FRONTEND}/unsubscribe?unsubToken=${user.unsubToken}`;
+        const unsubscribeUrl = `${process.env.WEBSITE_URL}/unsubscribe?unsubToken=${user.unsubToken}`;
         const html = generateNewsletterHtml({ message, trends, unsubscribeUrl });
         await transporter.sendMail({
           from: `"Beatseer" <${process.env.EMAIL_USER}>`,
@@ -92,7 +92,7 @@ export async function sendNewsletterToUser(email, message) {
       const db = await connectToDatabase();
       const collection = db.collection('subscribers');
       const user = await collection.findOne({ email: email, subFlag: 1 });
-      const unsubscribeUrl = `${process.env.FRONTEND}/unsubscribe?unsubToken=${user.unsubToken}`;
+      const unsubscribeUrl = `${process.env.WEBSITE_URL}/unsubscribe?unsubToken=${user.unsubToken}`;
       const html = generateNewsletterHtml({ message, trends, unsubscribeUrl });
       await transporter.sendMail({
         from: `"Beatseer" <${process.env.EMAIL_USER}>`,
